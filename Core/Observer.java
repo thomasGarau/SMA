@@ -1,5 +1,6 @@
 package Core;
 
-public class Observer {
-    
+public interface Observer {
+
+    public void reagir(Stimulus stimulus);
 }

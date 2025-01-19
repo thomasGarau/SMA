@@ -1,5 +1,7 @@
 package Core;
 
-public class StimulusDelegate {
-    
+public interface StimulusDelegate {
+
+    // Generates a stimulus based on the source position
+    Stimulus generateStimulus(Position sourcePosition);
 }
