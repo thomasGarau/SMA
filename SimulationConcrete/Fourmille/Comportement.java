@@ -1,5 +1,8 @@
 package SimulationConcrete.Fourmille;
 
-public class Comportement {
+//implement Strategy pattern
+public interface Comportement {
+    
+    public void agir(Agent agent);
     
 }

@@ -1,6 +1,6 @@
 package Core;
 
-public interface ObservableEnvironment {
+public interface ObservableFragment {
 
     void addObserver(Observer observer);
     void removeObserver(Observer observer);
