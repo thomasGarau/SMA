@@ -18,6 +18,10 @@ public class Environement {
         return this.fragments[positionX][positionY];
     }
 
+    public void setFragment(Fragment fragment, int positionX, int positionY) {
+        this.fragments[positionX][positionY] = fragment;
+    }
+
     public void MoveAgent(Agent agent, int newX, int newY) {
         //check if the new position is within the bounds of the environment
         if (newX < 0 || newX >= WIDTH || newY < 0 || newY >= HEIGHT) {

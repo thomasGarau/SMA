@@ -23,7 +23,9 @@ public abstract class Agent implements Observer {
 
     public abstract void agir();
 
-    public abstract void seDeplacer();
+    public abstract void seDeplacer(Environement environement);
+
+    public abstract void action(Environement environement);
 
     @Override
     public abstract void reagir(Stimulus stimulus);

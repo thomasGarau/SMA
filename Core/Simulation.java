@@ -42,8 +42,7 @@ public class Simulation {
 
                 // make agents move and act
                 for (Agent agent : fragment.getAgents()) {
-                    agent.seDeplacer();
-                    agent.agir(); 
+                    agent.action();
                 }
             }
         }
