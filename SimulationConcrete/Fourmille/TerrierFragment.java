@@ -18,4 +18,12 @@ public class TerrierFragment extends Fragment {
         return nourritureStockee;
     }
 
+    public void setNourritureStockee(int nourritureStockee) {
+        this.nourritureStockee = nourritureStockee;
+    }
+
+    public void retirerNourriture(int quantite) {
+        this.nourritureStockee -= quantite;
+    }
+
 }

@@ -4,6 +4,7 @@ import Core.Fragment;
 
 public class FragmentInfourmilleEnvironement extends Fragment {
     private Nourriture[] nourriture;
+    private Pheromone pheromone;
 
     public FragmentInfourmilleEnvironement(int positionX, int positionY) {
         super(positionX, positionY);
@@ -16,6 +17,14 @@ public class FragmentInfourmilleEnvironement extends Fragment {
     public Nourriture[] getNourriture() {
         return nourriture;
     }
+
+    public Pheromone getPheromone() {
+        return pheromone;
+    }
+
+    public void setPheromone(Pheromone pheromone) {
+        this.pheromone = pheromone;
+    } 
 
     public void retirerNouriture(FourmiOuvriere fourmi) {
         int valeurRecolte = 0;
@@ -34,5 +43,6 @@ public class FragmentInfourmilleEnvironement extends Fragment {
         }
         fourmi.addNourtirure(valeurRecolte);
     }
+    
     
 }

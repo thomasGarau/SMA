@@ -18,19 +18,9 @@ public class FourmiOuvriere extends Fourmi {
         this.nouritureTransportee += quantite;
     }
 
-    public void rentrerTerrier(EnvironnementFourmi environnementFourmi) {
-        int currentX = this.getPosition().getPositionX();
-        int currentY = this.getPosition().getPositionY();
-    
-        // Calcule la distance maximale que la fourmi peut parcourir
-        int nextX = Math.max(0, currentX - this.getVitesse());
-        int nextY = Math.max(0, currentY - this.getVitesse());
-        environnementFourmi.MoveAgent(this, nextX, nextY);
-    }
-
     @Override
     public void action(Environement environement) {
-        if(nouritureTransportee +2 > nouritureTransportable){
+        if(nouritureTransportee +2 > nouritureTransportable || this.getJaugeFaim() <= 5){
             if (this.getFragment() instanceof TerrierFragment) {
                 this.inTerrier();
             }else{
@@ -41,27 +31,25 @@ public class FourmiOuvriere extends Fourmi {
         else{ 
             if (((FragmentInfourmilleEnvironement) this.getFragment()).getNourriture() != null) {
                 this.agir();
-            }else{
-                seDeplacer(environement);
             }
         }
     }
 
     @Override
     public void inTerrier() {
-        super().inTerrier();
+        super.inTerrier();
         ((TerrierFragment) this.getFragment()).ajouterNourriture(nouritureTransportee);
         nouritureTransportee = 0;
     }
 
     @Override
     public void agir() {
-        
+        ((FragmentInfourmilleEnvironement) this.getFragment()).retirerNouriture(this);
     }
+
 
     @Override
     public void seDeplacer(Environement environement) {
-
     }
 
 
@@ -69,5 +57,4 @@ public class FourmiOuvriere extends Fourmi {
     public void reagir(Stimulus stimulus) {
 
     }
-
 }
