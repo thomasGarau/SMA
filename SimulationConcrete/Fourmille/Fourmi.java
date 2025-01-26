@@ -3,13 +3,15 @@ package SimulationConcrete.Fourmille;
 import Core.Agent;
 import Core.Environement;
 import Core.Fragment;
+import Core.Position;
 import Core.Stimulus;
 
 public abstract class Fourmi extends Agent {
-    public static final int jaugeMax = 10;
-    private int jaugeFaim = 10;
+    public static final int jaugeMax = 20;
+    private int jaugeFaim = 20;
     private int vitesse;
     private Fragment fragment;
+    private Position targetPosition;
     
     public Fourmi() {
         super();
@@ -75,5 +77,15 @@ public abstract class Fourmi extends Agent {
         int nextY = Math.max(0, currentY - this.getVitesse());
         environnementFourmi.MoveAgent(this, nextX, nextY);
     }
+
+
+    public Position getTargetPosition() {
+        return this.targetPosition;
+    }
+
+    public void setTargetPosition(Position targetPosition) {
+        this.targetPosition = targetPosition;
+    }
+
 
 }

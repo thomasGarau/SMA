@@ -1,9 +1,12 @@
 package Core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Simulation {
     private int tick = 0;
     private int timePerTick = 1000; // 1 seconde per tick  
-    private Environement environment;
+    protected Environement environment;
     private int maxTicks;
 
     public Simulation(Environement environment, int maxTicks) {
@@ -35,16 +38,20 @@ public class Simulation {
     }
 
     // update the environement at each tick
-    private void updateEnvironment() {
-        for (int i = 0; i < Environement.WIDTH; i++) {
-            for (int j = 0; j < Environement.HEIGHT; j++) {
-                Fragment fragment = environment.getFragment(i, j);
+protected void updateEnvironment() {
+    for (int i = 0; i < Environement.WIDTH; i++) {
+        for (int j = 0; j < Environement.HEIGHT; j++) {
+            Fragment fragment = environment.getFragment(i, j);
 
-                // make agents move and act
-                for (Agent agent : fragment.getAgents()) {
-                    agent.action();
-                }
+            // Crée une copie de la liste des agents pour éviter les modifications concurrentes
+            List<Agent> agents = new ArrayList<>(fragment.getAgents());
+
+            // Parcours la copie pour exécuter l'action de chaque agent
+            for (Agent agent : agents) {
+                agent.action(environment);
             }
         }
     }
+}
+
 }

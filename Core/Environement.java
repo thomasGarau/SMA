@@ -7,11 +7,6 @@ public class Environement {
     private Fragment[][] fragments = new Fragment[WIDTH][HEIGHT];
 
     public Environement() {
-        for (int i = 0; i < WIDTH; i++) {
-            for (int j = 0; j < HEIGHT; j++) {
-                this.fragments[i][j] = new Fragment(i, j);
-            }
-        }
     }
 
     public Fragment getFragment(int positionX, int positionY) {

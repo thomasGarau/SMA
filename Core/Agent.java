@@ -17,8 +17,8 @@ public abstract class Agent implements Observer {
         return this.position;
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
+    public void setPosition(Position sourcePosition) {
+        this.position = sourcePosition;
     }
 
     public abstract void agir();
